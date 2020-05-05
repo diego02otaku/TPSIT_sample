@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+#sinistro{
+  border: solid 3px red;
+  width:70%;
+  float:left;
+
+}
+#destro{
+  height:350px;
+  width:28%;
+  float:right;
+  border:solid 1px green;
+}
+img{
+  width:45%;
+}
+.riga{
+  float:left;
+  text-align: center;
+  width:250px;
+  height:250px;
+}
+.immagini{
+  width:45% !important;
+}
+.invio{
+  clear:both;
+}
+h1{
+  background-color:black;
+  text-align:center;
+  color:white;
+}
+#destro{
+  background-color:gray;
+  text-align:center;
+  border:solid 1px yellow;
+}
+#testo{
+  color:white;
+}
+ol{
+  color:white;
+}
+hr{
+  display: block;
+  border-width: 10px;
+  color:white;
+}
+.descr{
+  margin-top:1px;
+  line-height: 7px
+}
+    </style>
+    <script type="text/javascript">
+      var totale=0;
+      function start(event){
+          event.dataTransfer.setData("pippo", event.target.id);
+      }
+      function entra(event){
+        event.preventDefault();
+
+      }
+      function fine(event){
+        event.preventDefault(); //IMPORTANTE NON APRE L'IMMAGINE
+        var data = event.dataTransfer.getData("pippo"); //RECUPERO LA VARIABILE ID(ID DELL'IMMAGINE TRASCINATA)
+        var oggetto= document.getElementById(data); //RECUPERO TAG IMG CHE HA ID = PIPPO
+        var descrizione=oggetto.getAttribute("data-descrizione");
+        var prezzo=oggetto.getAttribute("data-prezzo");
+        totale=totale + parseInt(prezzo);
+
+        var nuovoOggetto=document.createElement("li");
+        nuovoOggetto.innerHTML=descrizione + " - " + prezzo
+
+        var mioDiv=document.getElementById("tot");
+        mioDiv.innerHTML=totale;
+
+        var mioElenco= document.getElementById("elenco");
+        mioElenco.appendChild(nuovoOggetto);
+
+      }
+    </script>
+  </head>
+  <body>
+<div id="container">
+  <div id="sinistro">
+    <h1>marvel cinematic universe</h1>
+    <div class="riga">
+      <img id="foto1" src="./img/ironman.jpg" data-descrizione="ironman" data-prezzo="2,50€/kg" alt="" draggable="true" ondragstart="start(event)">
+      <p class="descr">ironman</p>
+      <p class="descr">tony stark</p>
+    </div>
+    <div class="riga">
+      <img id="foto2" src="./img/captainamerica.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="captainamerica" data-prezzo="2,00€/kg">
+      <p class="descr">captainamerica</p>
+      <p class="descr">Steve Rogers</p>
+    </div>
+    <div class="riga">
+      <img id="foto3" src="./img/hulk.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="hulk" data-prezzo="1,20€/kg">
+      <p class="descr">hulk</p>
+      <p class="descr">bruce Banner</p>
+    </div>
+    <div class="riga">
+      <img id="foto4" src="./img/blackwidow.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="blackwidow" data-prezzo="2,20€/kg">
+      <p class="descr">blackwidow</p>
+      <p class="descr">Natasha Romanoff</p>
+    </div>
+    <div class="riga">
+      <img id="foto5" src="./img/doctorstrange.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="doctorstrange" data-prezzo="1,60€/kg">
+      <p class="descr">doctorstrange</p>
+      <p class="descr">Stephen Strange</p>
+    </div>
+    <div class="riga">
+      <img id="foto6" src="./img/spiderman.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="spiderman" data-prezzo="2,70€/kg">
+      <p class="descr">spiderman</p>
+      <p class="descr">peter parker</p>
+  </div>
+   <div class="riga">
+     <img id="foto7" src="./img/thor.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="thor"
+     <P class="descr">thor</p>
+  </div>
+   <div class="riga">
+     <img id="foto8" src="./img/BlackPanther.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="BlackPanther"
+     <p class="descr">BlackPanther</p>
+     <p class="descr" >Challa</p>
+  </div>
+   <div class="riga">
+      <img id="foto9" src="./img/visione.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="visione"
+      <p class="descr">visione</p>
+  </div>
+   <div class="riga">
+        <img id="foto10" src="./img/Scarlet.jpg" alt="" draggable="true" ondragstart="start(event)" data-descrizione="Scarlet"
+        <p class="descr">Scarlet</p>
+        <p class="descr">Wanda Maximoff</p>
+  </div>
+
+<script>
+function myFunction() {
+  alert(totale);
+}
+
+</script>
+      </p>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </head>
